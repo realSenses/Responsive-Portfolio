@@ -61,54 +61,52 @@ body {
 
   /* header section and nav links*/
   
-  #masthead {
-    position: fixed;
-    z-index: 99;
+  .headercontainer {
+    width: 960px;
+    height: 100%;
+    margin: 0 auto; }
+  
+  .header {
+    height: 86px;
     width: 100%;
-    margin: 0 0 30px;
-    overflow: auto;
-    color: #fff;
-    background: #fff;
-    border-bottom: 2px solid #ccc;
-  }
+    background-color: #ffffff;
+    border-bottom: 2px solid #cccccc;
+    position: fixed;
+    z-index: 3; }
   
-  #logo {
-    float: left;
-    width: 350px;
-    height: 90px;
-    font-family: Georgia, Times, "Times New Roman", serif;
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 90px;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    background: #4aaaa5;
-  }
-  
-  nav {
-    float: right;
-    margin-top: 25px;
-  }
-  
-  nav a {
-    display: inline-block;
-    padding-left: 15px;
-    margin-left: 15px;
-    line-height: 18px;
-    color: #999;
-    text-decoration: none;
-    border-left: 1px solid #efefef;
+  .title {
+    background-color: #4aaaa5;
+    width: 221px;
+    height: 100%;
+    float: left; 
   }
 
-  nav a:hover {
-    color: #4aaaa5;
-    font-weight: bold;
+  .title h2 {
+    padding: 32px 0px;
+    text-align: center;
+    color: #ffffff; 
   }
   
-  nav a:first-child {
-    border-left: 0 none;
+  .nav-bar {
+    float: right;
+    margin-top: 34px; 
   }
+
+  .nav-bar a {
+    text-decoration: none;
+    color: #777777;
+    float: left;
+    padding: 2px 9px 0 9px;
+    height: 16px; 
+  }
+
+  .nav-bar a:hover {
+    color: #cccccc; }
+  .nav-bar a:not(:first-child) {
+      border-left: 1px solid #dddddd; }
+  
+  .nav-bar .current, .nav-bar .current:hover {
+    color: #4aaaa5; }
   
   /* footer section */
   
@@ -132,7 +130,6 @@ body {
   }
   
   .main-section {
-    float: left;
     width: 100%;
     max-width: 960px;
     padding: 30px;
@@ -143,37 +140,45 @@ body {
   
   /* portfolio page */
   
-  .work {
+  .portfolio-item {
+    display: inline-block;
+    background-color: #777777;
+    width: 274px;
+    height: 205px;
+    margin: 30px 5px;
     position: relative;
-    float: left;
-    width: 420px;
-    margin: 20px 0 25px;
-    overflow: auto;
-  }
+    overflow: hidden;
+    transition: .1s ease-in-out;
+    border: 1px solid #dddddd;
+   }
+
+  .portfolio-item:hover {
+      transform: translate(0, -8px);
+      box-shadow: 0px 8px #dddddd;
+      transition: .3s ease-in-out;
+     }
+
+  .portfolio-item img {
+      width: 100%;
+      position: absolute;
+      z-index: 0; 
+    }
+
+
+  .portfolio-item h2 {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 18px;
+      text-align: center;
+      color: #ffffff;
+      background-color: #4aaaa5;
+      opacity: .9;
+      font-weight: normal;
+      position: absolute;
+      bottom: 12px;
+      z-index: 1;
+     }
   
-  .work:nth-child(even) {
-    margin-right: 40px;
-  }
-  
-  .work img {
-    width: 100%;
-    border: 0 none;
-    opacity: 0.8;
-  }
-  
-  .work h3 {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 0;
-    font-weight: 300;
-    line-height: 30px;
-    color: #fff;
-    text-align: center;
-    background: #4aaaa5;
-    border-bottom: 0;
-  }
   
   .andrew {
     float: left;
@@ -232,16 +237,20 @@ body {
       background-color: yellow;
     }*/
   
-    #logo {
-      max-width: 100%;
-    }
+    .headercontainer {
+      width: 740px;
+     }
   
-    .work {
-        width: 85%;
-      }
+    .portfolio-item {
+      width: 100%;
+      height: 284px;
+     }
+
+    .portfolio-item img {
+      width: 100%; }
 
     .main-section {
-      max-width: 55%;
+      max-width: 65%;
     }
 }
   /*end of laptop*/
@@ -256,29 +265,43 @@ body {
       max-width: 100%;
     }
   
-    nav {
-        float: left;
-        margin-top: 25px;
-      }
+    .headercontainer {
+      width: 94%;
+    }
+  
+  .portfolio-item {
+    width: 48%;
+    margin: 15px 0;
+    height: 200px; }
 
   }
   /*end of tablet*/
   
   /*for phone (landscape) viewport up to 640 pixels*/
   @media screen and (max-width: 640px) {
-  
-    #masthead {
-      position:static;
-      max-width:100%;
-    }
-  
-    nav {
-        float: left;
-        margin-top: 25px;
-      }
 
-    #logo {
-      max-width: 100%;
+    .title {
+      height: 86px;
+      width: 100%; }
+  
+    .headercontainer {
+      width: 100%; }
+  
+    .header {
+      height: auto; }
+  
+    .nav-bar {
+      padding: 12px 0;
+      width: 100%;
+      background-color: #ffffff;
+      display: inline-block;
+      margin-top: 0px; 
+    }
+
+    .nav-bar a {
+      box-sizing: border-box;
+      width: 33.3%;
+      text-align: center; 
     }
   
     .container {
@@ -286,18 +309,28 @@ body {
       padding:20px;
     }
   
-    .work {
-        width: 90%;
-    }
-
     #main-container {
     padding-top: 5px;
     max-width: 100%
     }
   
-  
     .andrew {
       width: 100%;
     }
+    .portfolio-item {
+      width: 100%;
+      height: 320px; } }
 
-}
+  /* Smaller Phone Screens below */
+
+  @media screen and (max-width: 550px) {
+    .portfolio-item {
+      height: 300px; } }
+
+  @media screen and (max-width: 480px) {
+    .portfolio-item {
+      height: 250px; 
+    } }
+  @media screen and (max-width: 410px) {
+    .portfolio-item {
+      height: 200px; } }
